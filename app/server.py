@@ -62,7 +62,11 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     #prediction, prediction_id, prediction_probability = learn.predict(img)[0]
     prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    prediction_probability  = learn.predict(img)[2]
+    return JSONResponse({
+        'result': str(prediction),
+        'probabilities': str(prediction_probability)
+    })
     
     #return JSONResponse({
     #    'result': str(prediction), 

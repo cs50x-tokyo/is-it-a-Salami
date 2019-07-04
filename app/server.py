@@ -63,10 +63,12 @@ async def analyze(request):
     #prediction, prediction_id, prediction_probability = learn.predict(img)[0]
     prediction = learn.predict(img)[0]
     prediction_probability  = learn.predict(img)[2]
-    return JSONResponse({
-        'result': str(prediction),
-        'probabilities': str(prediction_probability)
-    })
+    #return JSONResponse({
+       # 'result': str(prediction),
+        
+        #'probabilities': str(prediction_probability)
+    #})
+    return JSONResponse(prediction_probability)
     
     #return JSONResponse({
     #    'result': str(prediction), 
